@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1018857728568",
+    "project_id": "ecommerce-8c1c9",
+    "storage_bucket": "ecommerce-8c1c9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018857728568:android:eac854df5bb1fa326f54cd",
+        "android_client_info": {
+          "package_name": "com.niyiment.auth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOjTrUr-729h8l7VUK86Tq8W-fe_fWOm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

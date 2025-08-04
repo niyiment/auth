@@ -61,7 +61,7 @@ class FirebaseAuthService {
     }
   }
 
-  Future<void> singOut() async {
+  Future<void> signOut() async {
     await _firebaseAuth.signOut();
   }
 

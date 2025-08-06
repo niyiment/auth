@@ -5,6 +5,7 @@ class CustomSize {
   static const double md = 16.0;
   static const double lg = 20.0;
   static const double xl = 30.0;
+  static const double xxl = 40.0;
 
   // Icon Sizes
   static const double iconXs = 12.0;
@@ -27,6 +28,6 @@ class CustomSize {
   static const double inputFieldRadius = 16.0;
   static const double spaceBtwInputFields = 16.0;
 
-  // Divier hieght
+  // Divider height
   static const double dividerHeight = 1.0;
 }

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/user_model.dart';
 import '../services/connectivity_service.dart';
 import '../services/firebase_auth_service.dart';
+import '../utils/constants/custom_text_strings.dart';
 import 'auth_state.dart';
 
 final firebaseAuthServiceProvider = Provider<FirebaseAuthService>((ref) {
@@ -96,7 +97,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
       if (!hasInternet) {
         state = state.copyWith(
           status: AuthStatus.error,
-          errorMessage: 'No internet connection. Please check your network and try again.',
+          errorMessage: CustomText.noInternet,
           isLoading: false,
         );
         return false;
@@ -130,6 +131,43 @@ class AuthNotifier extends StateNotifier<AuthState> {
           clearError: true,
         );
 
+        return true;
+      }
+
+      return false;
+    } catch (e) {
+      state = state.copyWith(
+        status: AuthStatus.error,
+        errorMessage: e.toString(),
+        isLoading: false,
+      );
+      return false;
+    }
+  }
+
+  Future<bool> signInUser({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      state = state.copyWith(status: AuthStatus.loading, isLoading: true);
+
+      final hasInternet = await _connectivityService.hasInternetConnection();
+      if (!hasInternet) {
+        state = state.copyWith(
+          status: AuthStatus.error,
+          errorMessage: CustomText.noInternet,
+          isLoading: false,
+        );
+        return false;
+      }
+
+      final credential = await _authService.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      if (credential.user != null) {
         return true;
       }
 

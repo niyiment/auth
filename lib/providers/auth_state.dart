@@ -26,7 +26,7 @@ class AuthState {
   bool get isAuthenticated => status == AuthStatus.authenticated;
   bool get isUnauthenticated => status == AuthStatus.unauthenticated;
   bool get hasError => status == AuthStatus.error && errorMessage != null;
-  bool get isEmailNotVerified => status == AuthStatus.emailNotVerified;
+  bool get needsEmailVerification => status == AuthStatus.emailNotVerified;
 
   AuthState copyWith({
     AuthStatus? status,
